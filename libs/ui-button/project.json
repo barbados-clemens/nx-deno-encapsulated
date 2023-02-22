@@ -1,0 +1,26 @@
+{
+  "name": "ui-button",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/ui-button/src",
+  "projectType": "library",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/deno:test",
+      "outputs": [
+        "coverage/libs/ui-button"
+      ],
+      "options": {
+        "coverageDirectory": "coverage/libs/ui-button",
+        "denoConfig": "deno.json",
+        "check": "local"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/deno:lint",
+      "options": {
+        "denoConfig": "deno.json"
+      }
+    }
+  },
+  "tags": []
+}

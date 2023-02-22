@@ -1,0 +1,52 @@
+{
+  "name": "thats-fresh",
+  "root": ".",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/deno:bundle",
+      "outputs": [
+        "dist/main.js"
+      ],
+      "options": {
+        "main": "main.ts",
+        "outputFile": "dist/main.js",
+        "denoConfig": "deno.json"
+      },
+      "configurations": {
+        "dev": {
+          "main": "dev.ts"
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/deno:run",
+      "options": {
+        "buildTarget": "thats-fresh:build",
+        "watch": true
+      },
+      "configurations": {
+        "dev": {
+          "buildTarget": "thats-fresh:build:dev"
+        }
+      },
+      "defaultConfiguration": "dev"
+    },
+    "test": {
+      "executor": "@nrwl/deno:test",
+      "outputs": [
+        "coverage"
+      ],
+      "options": {
+        "coverageDirectory": "coverage",
+        "denoConfig": "deno.json"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/deno:lint",
+      "options": {
+        "denoConfig": "deno.json"
+      }
+    }
+  },
+  "tags": []
+}
